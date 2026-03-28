@@ -1,41 +1,872 @@
-<!DOCTYPE html>
-<html lang="ua">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Услад</title>
-</head>
-<body>
-    <div class="first_bg">
-        <!-- header -->
-        <div>
-            <header class="header">
-                <a href="#" onclick="location.reload(); return false" class="logo"></a>
-                <nav class="hed_nav">
-                <a href="/" onclick="location.reload(); return false" class="hed_text active">Головна</a>
-                <a href="/templates/apartments.html" class="hed_text">Апартаменти</a>
-                <a href="/templates/restaurant.html" class="hed_text">Ресторан</a>
-                <a href="/templates/services.html" class="hed_text">Послуги</a>
-                <a href="/templates/contacts.html" class="hed_text">Контакти</a>
-                <a href="/templates/about.html" class="hed_text">Про нас</a>
-                <a href="/templates/booking.html" class="hed_text">Бронювання</a>
-                <span class="hed_text">+380969909070</span>
-                </nav>
-            </header>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rufina:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/static/css/mobile.css"
+      media="(max-width: 768px)"
+    />
+  </head>
+
+  <body>
+    <!-- MAIN PAGE I BLOCK -->
+    <div class="first_bg" id="top">
+      <!-- Header -->
+      <header class="header">
+        <a
+          href="#"
+          onclick="
+            location.reload();
+            return false;
+          "
+          class="logo"
+        ></a>
+
+        <!-- кнопка бургер-меню -->
+        <div class="burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    
-        <!-- first block -->
+
+        <nav class="hed_nav" id="nav-menu">
+          <div class="menu-header">
+            <h3>Меню</h3>
+          </div>
+          <hr class="menu-line" />
+
+          <a
+            href="#"
+            onclick="
+              location.reload();
+              return false;
+            "
+            class="hed_text active"
+          >
+            Головна
+            <img
+              src="/static/images/Головна меню.png"
+              alt="Головна"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/apartments.html" class="hed_text">
+            Апартаменти
+            <img
+              src="/static/images/Апартаменти меню.png"
+              alt="Апартаменти"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/restaurant.html" class="hed_text">
+            Ресторан
+            <img
+              src="/static/images/Ресторан меню.png"
+              alt="Ресторан"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/services.html" class="hed_text">
+            Послуги
+            <img
+              src="/static/images/Послуги меню.png"
+              alt="Послуги"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/about.html" class="hed_text">
+            Про нас
+            <img
+              src="/static/images/Про нас меню.png"
+              alt="Про нас"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/contacts.html" class="hed_text">
+            Контакти
+            <img
+              src="/static/images/Контакти меню.png"
+              alt="Контакти"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/booking.html" class="hed_text">
+            Бронювання
+            <img
+              src="/static/images/Бронювання меню.png"
+              alt="Бронювання"
+              class="nav-photo"
+            />
+          </a>
+
+          <span class="hed_text">+380969909070</span>
+        </nav>
+      </header>
+
+      <!-- Media block -->
+      <div class="first-block">
+        <div class="social-bar">
+          <div class="line"></div>
+          <div class="social">
+            <a href="https://www.facebook.com/uslad.com.ua" target="_blank">
+              <img src="/static/images/facebook.png" alt="Facebook" />
+            </a>
+            <a
+              href="https://www.instagram.com/tk_uslad/?fbclid=IwAR2S-mwPbL8yD8ClB_ZrFmGxBOSmmDhFjPg84BvIGqCjGsDsH6Qoblta6Pg"
+              target="_blank"
+            >
+              <img src="/static/images/instagram.png" alt="Instagram" />
+            </a>
+            <a href="https://www.youtube.com/@tvuslad" target="_blank">
+              <img src="/static/images/youtube.png" alt="YouTube" />
+            </a>
+          </div>
+          <div class="line"></div>
+        </div>
+
         <div class="title-block">
-        <h1 class="title">Услад</h1>
-        <h2 class="title2">Місце, де відпочиває душа</h2>
-        <a href="/templates/apartments.html" class="main-btn">Переглянути номери</a>
+          <h1 class="title">Услад</h1>
+          <h2 class="title2">Місце, де відпочиває душа</h2>
+          <a href="/templates/apartments.html" class="main-btn"
+            >Переглянути номери</a
+          >
         </div>
+      </div>
     </div>
 
-<!-- <script src="/static/js/script.js"></script> -->
-</body>
+    <!-- MAIN PAGE II BLOCK -->
+    <div class="II_block">
+      <h2 class="II_title">
+        Тур комплекс “Услад”- чудовий вибір для відпочинку
+      </h2>
+
+      <div class="icons_row">
+        <div class="II_line"></div>
+
+        <div class="icon_pack">
+          <img src="/static/images/icon_car.png" alt="" />
+          <img src="/static/images/icon_ship.png" alt="" />
+          <img src="/static/images/icon_fish.png" alt="" />
+          <img src="/static/images/icon_sun.png" alt="" />
+          <img src="/static/images/icon_anchor.png" alt="" />
+          <img src="/static/images/icon_ball.png" alt="" />
+          <img src="/static/images/icon_chair.png" alt="" />
+        </div>
+
+        <div class="II_line"></div>
+      </div>
+
+      <!-- SLIDER (mobile only) -->
+      <div class="desc_slider">
+        <div class="slide">
+          <h4 class="description">
+            До послуг відпочиваючих входять: затишні номери для проживання;
+            ресторан з широким вибором страв та напоїв; сауна “У Солохи”;
+          </h4>
+        </div>
+
+        <div class="slide">
+          <h4 class="description">
+            Можна орендувати яхти, катери, катамарани, розважатися на водних
+            “бананах” і “булочках”. Можна плавати у відкритому басейні, грати в
+            пляжний футбол, волейбол, бадмінтон.
+          </h4>
+        </div>
+
+        <div class="slide">
+          <h4 class="description">
+            На території розміщені стоянки для автомобілів і катерів,
+            передбачено під’їзд машин до води. Також наявні всі умови для
+            риболовлі та підводного плавання.
+          </h4>
+        </div>
+      </div>
+
+      <!-- Desktop version -->
+      <div class="desc_wrapper">
+        <h4 class="description">
+          До послуг відпочиваючих входять: затишні номери для проживання;
+          ресторан з широким вибором страв та напоїв; сауна “У Солохи”;
+        </h4>
+        <h4 class="description">
+          Можна орендувати яхти, катери, катамарани, розважатися на водних
+          “бананах” і “булочках”. Можна плавати у відкритому басейні, грати в
+          пляжний футбол, волейбол, бадмінтон.
+        </h4>
+        <h4 class="description">
+          На території розміщені стоянки для автомобілів і катерів, передбачено
+          під’їзд машин до води. Також наявні всі умови для риболовлі та
+          підводного плавання.
+        </h4>
+      </div>
+
+      <!-- DOTS — ВСЕРЕДИНІ II BLOCK -->
+      <div class="II_slider_dots">
+        <span class="II_dot active"></span>
+        <span class="II_dot"></span>
+        <span class="II_dot"></span>
+      </div>
+    </div>
+
+    <!-- MAIN PAGE III BLOCK -->
+    <div class="video-block">
+      <div class="video-container">
+        <video id="usladVideo">
+          <source src="/static/videos/video_uslad.mp4" type="video/mp4" />
+        </video>
+
+        <div class="video-overlay" id="videoOverlay"></div>
+        <div class="play-btn" id="playBtn"></div>
+
+        <div class="video-controls" id="videoControls">
+          <button class="ctrl-btn" id="playPauseBtn">⏵</button>
+          <input type="range" id="progressBar" value="0" min="0" max="100" />
+          <button class="ctrl-btn" id="muteBtn">🔊</button>
+          <button class="ctrl-btn" id="fullscreenBtn">⛶</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN PAGE IV BLOCK -->
+    <div class="iv-section">
+      <h1 class="title4">ДОЗВІЛЛЯ</h1>
+      <div class="iv-list">
+        <!-- Item 1 -->
+        <div class="iv-item">
+          <div class="IV_line"></div>
+          <div class="iv-row">
+            <p class="mtext4">Пірс "Тірас"</p>
+            <button class="iv-btn" type="button" aria-expanded="false">
+              <img
+                src="/static/images/Arrow_down.png"
+                alt="Відкрити"
+                class="arrow"
+              />
+            </button>
+          </div>
+
+          <!-- РОЗГОРТАННЯ -->
+          <div class="iv-details" hidden>
+            <div class="iv-details-inner">
+              <div class="iv-details-text">
+                <p class="iv-details-desc">
+                  Пірс «Тірас» є осередком розважального відпочинку, де
+                  розміщені дискотечна зона, бар та відкритий майданчик із
+                  якісним музичним супроводом. Це ідеальне місце для вечірнього
+                  дозвілля, танців та святкової атмосфери біля води.
+                </p>
+              </div>
+
+              <div class="iv-details-media">
+                <div class="iv-viewport">
+                  <div class="iv-track">
+                    <img src="/static/images/Пірс1.jpg" alt="Пірс Тірас" />
+                    <img src="/static/images/Пірс2.jpg" alt="Пірс Тірас" />
+                    <img src="/static/images/Пірс3.jpg" alt="Пірс Тірас" />
+                  </div>
+                </div>
+
+                <div class="slider_dots"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="IV_line"></div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="iv-item">
+          <div class="iv-row">
+            <p class="mtext4">Екстримальні розваги</p>
+            <button class="iv-btn" type="button" aria-expanded="false">
+              <img
+                src="/static/images/Arrow_down.png"
+                alt="Відкрити"
+                class="arrow"
+              />
+            </button>
+          </div>
+
+          <!-- РОЗГОРТАННЯ -->
+          <div class="iv-details" hidden>
+            <div class="iv-details-inner">
+              <div class="iv-details-text">
+                <p class="iv-details-desc">
+                  Для любителів активного та екстремального відпочинку Услад
+                  пропонує різноманітні водні та спортивні розваги. Гості можуть
+                  відчути адреналін під час катання на воді, участі в активних
+                  іграх та екстремальних атракціонах, а також поєднати
+                  відпочинок із природними та пізнавальними пригодами.
+                </p>
+              </div>
+
+              <div class="iv-details-media">
+                <div class="iv-viewport">
+                  <div class="iv-track">
+                    <img src="/static/images/Розваги1.jpg" alt="Розваги" />
+                    <img src="/static/images/Розваги2.jpg" alt="Розваги" />
+                    <img src="/static/images/Розваги3.jpg" alt="Розваги" />
+                  </div>
+                </div>
+
+                <div class="slider_dots"></div>
+              </div>
+            </div>
+          </div>
+          <div class="IV_line"></div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="iv-item">
+          <div class="iv-row">
+            <p class="mtext4">Сауна "У Солохи"</p>
+            <button class="iv-btn" type="button" aria-expanded="false">
+              <img
+                src="/static/images/Arrow_down.png"
+                alt="Відкрити"
+                class="arrow"
+              />
+            </button>
+          </div>
+
+          <!-- РОЗГОРТАННЯ -->
+          <div class="iv-details" hidden>
+            <div class="iv-details-inner">
+              <div class="iv-details-text">
+                <p class="iv-details-desc">
+                  Для поціновувачів релаксу та оздоровчого відпочинку на
+                  території комплексу працює сауна «У Солохи» з джакузі та
+                  архаїчними дерев’яними бочками, наповненими чистою джерельною
+                  водою. Атмосфера сауни сприяє повному розслабленню,
+                  відновленню сил і гармонії з природою.
+                </p>
+              </div>
+
+              <div class="iv-details-media">
+                <div class="iv-viewport">
+                  <div class="iv-track">
+                    <img src="/static/images/Сауна1.jpg" alt="Сауна" />
+                    <img src="/static/images/Сауна2.jpg" alt="Сауна" />
+                    <img src="/static/images/Сауна3.jpg" alt="Сауна" />
+                  </div>
+                </div>
+
+                <div class="V_slider_dots"></div>
+              </div>
+            </div>
+          </div>
+          <div class="IV_line"></div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="iv-item">
+          <div class="iv-row">
+            <p class="mtext4">Ресторан "Казан"</p>
+            <button class="iv-btn" type="button" aria-expanded="false">
+              <img
+                src="/static/images/Arrow_down.png"
+                alt="Відкрити"
+                class="arrow"
+              />
+            </button>
+          </div>
+
+          <!-- РОЗГОРТАННЯ -->
+          <div class="iv-details" hidden>
+            <div class="iv-details-inner">
+              <div class="iv-details-text">
+                <p class="iv-details-desc">
+                  На території комплексу функціонує ресторан «Казан» — затишний
+                  заклад на 40 місць із широким асортиментом вишуканих страв
+                  національної кухні. Ресторан також надає послуги кейтерингу,
+                  що дозволяє організовувати святкові події та заходи різного
+                  формату.
+                </p>
+              </div>
+
+              <div class="iv-details-media">
+                <div class="iv-viewport">
+                  <div class="iv-track">
+                    <img src="/static/images/Ресторан1.jpg" alt="Ресторан" />
+                    <img src="/static/images/Ресторан2.jpg" alt="Ресторан" />
+                    <img src="/static/images/Ресторан3.jpg" alt="Ресторан" />
+                  </div>
+                </div>
+
+                <div class="slider_dots"></div>
+              </div>
+            </div>
+          </div>
+          <div class="IV_line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN PAGE V BLOCK: COTTAGES -->
+    <div class="II_block" id="cottages">
+      <h2 class="II_title">Котеджі</h2>
+      <div class="V_line"></div>
+
+      <div class="cottage-carousel" data-carousel="cottages">
+        <!-- LEFT ARROW -->
+        <button
+          class="cottage-arrow"
+          type="button"
+          data-cottages-prev
+          aria-label="Попередній котедж"
+        >
+          <img
+            src="{{ url_for('static', filename='images/arrow-left.png') }}"
+            alt="Попередній"
+          />
+        </button>
+
+        <div class="cottage-viewport">
+          <div class="cottage-track">
+            {% for cottage in cottages %}
+            <div class="cottage-slide">
+              <div class="iv-details-inner">
+                <div class="iv-details-text">
+                  <p class="mtext5">{{ cottage.CottageType }}</p>
+                  <p class="v-details-desc">{{ cottage.Description }}</p>
+
+                  <a href="#" class="main-btn">Дивитися більше</a>
+
+                  <div class="cottage-dots" data-cottages-dots></div>
+                </div>
+
+                <div class="iv-details-media">
+                  <div class="iv-viewport">
+                    <div class="iv-track">
+                      {% set imgs = images_map.get(cottage.CottageTypeID, []) %}
+                      {% for img in imgs %}
+                      <img src="{{ img }}" alt="{{ cottage.CottageType }}" />
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- RIGHT ARROW -->
+        <button
+          class="cottage-arrow cottage-arrow--right"
+          type="button"
+          data-cottages-next
+          aria-label="Наступний котедж"
+        >
+          <img
+            src="{{ url_for('static', filename='images/arrow-left.png') }}"
+            alt="Наступний"
+          />
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN PAGE VI BLOCK -->
+    <div class="second_bg">
+      <div class="booking-form">
+        <form
+          class="booking-fields"
+          method="POST"
+          action="/book"
+          id="bookingForm"
+        >
+          <h1 class="title6">Бронювання</h1>
+          <h4 class="desc6">
+            Після надсилання заявки ви отримаєте підтвердження на Email
+          </h4>
+
+          <div class="date-row">
+            <!-- Заїзд -->
+            <div class="date-field" data-role="checkin">
+              <div class="left-icon" aria-hidden="true">
+                <img src="/static/images/calendar-small.png" alt="left-icon" />
+              </div>
+
+              <div class="date-text" id="checkinText">Дата заїзду</div>
+              <input
+                class="native-date"
+                id="checkinInput"
+                type="date"
+                name="checkin"
+              />
+
+              <button
+                class="right-icon"
+                type="button"
+                aria-label="Вибрати дату заїзду"
+              >
+                <img src="/static/images/calendar.png" alt="right-icon" />
+              </button>
+            </div>
+
+            <!-- Виїзд -->
+            <div class="date-field" data-role="checkout">
+              <div class="left-icon" aria-hidden="true">
+                <img src="/static/images/calendar-small.png" alt="left-icon" />
+              </div>
+
+              <div class="date-text" id="checkoutText">Дата виїзду</div>
+              <input
+                class="native-date"
+                id="checkoutInput"
+                type="date"
+                name="checkout"
+              />
+
+              <button
+                class="right-icon"
+                type="button"
+                aria-label="Вибрати дату виїзду"
+              >
+                <img src="/static/images/calendar.png" alt="right-icon" />
+              </button>
+            </div>
+          </div>
+
+          <div class="date-row">
+            <!-- Кількість гостей -->
+            <div class="field guests-field" id="guestsField">
+              <div class="left-icon" aria-hidden="true">
+                <img src="/static/images/person.png" alt="" />
+              </div>
+
+              <div class="field-text" id="guestsText">Кількість гостей</div>
+
+              <button
+                class="right-icon"
+                id="guestsToggle"
+                type="button"
+                aria-label="Вибрати кількість гостей"
+                aria-expanded="false"
+              >
+                <img src="/static/images/arrow-down.png" alt="" />
+              </button>
+
+              <!-- Dropdown -->
+              <div class="guests-dropdown" id="guestsDropdown" hidden>
+                <div class="guests-dropdown__head">
+                  <div class="guests-dropdown__title">Кількість гостей</div>
+                </div>
+
+                <!-- Дорослі -->
+                <div class="guests-row">
+                  <div class="guests-row__left">
+                    <div class="guests-row__label">Дорослі (13+)</div>
+                  </div>
+
+                  <div class="guests-row__right">
+                    <button
+                      class="qty-btn"
+                      type="button"
+                      data-action="dec"
+                      data-target="adults"
+                    >
+                      −
+                    </button>
+                    <div class="qty-value" id="adultsVal">1</div>
+                    <button
+                      class="qty-btn"
+                      type="button"
+                      data-action="inc"
+                      data-target="adults"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Діти -->
+                <div class="guests-row">
+                  <div class="guests-row__left">
+                    <div class="guests-row__label">Діти (0–12)</div>
+                    <div class="guests-row__sub">
+                      Діти до 12 років безкоштовно
+                    </div>
+                  </div>
+
+                  <div class="guests-row__right">
+                    <button
+                      class="qty-btn"
+                      type="button"
+                      data-action="dec"
+                      data-target="kids"
+                    >
+                      −
+                    </button>
+                    <div class="qty-value" id="kidsVal">0</div>
+                    <button
+                      class="qty-btn"
+                      type="button"
+                      data-action="inc"
+                      data-target="kids"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Додаткове місце -->
+                <div class="guests-row">
+                  <div class="guests-row__left">
+                    <div class="guests-row__label">Додаткове місце</div>
+                    <div class="guests-row__sub">Оплачується окремо</div>
+                  </div>
+
+                  <div class="guests-row__right">
+                    <button
+                      class="qty-btn"
+                      type="button"
+                      data-action="dec"
+                      data-target="extra"
+                    >
+                      −
+                    </button>
+                    <div class="qty-value" id="extraVal">0</div>
+                    <button
+                      class="qty-btn"
+                      type="button"
+                      data-action="inc"
+                      data-target="extra"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Тварини -->
+                <div class="guests-row">
+                  <div class="guests-row__left">
+                    <div class="guests-row__label">Тварини</div>
+                    <div class="guests-row__sub">Оплачується окремо</div>
+                  </div>
+
+                  <div class="guests-row__right">
+                    <button
+                      class="pets-toggle"
+                      type="button"
+                      id="petsToggle"
+                      aria-pressed="false"
+                    >
+                      <span class="pets-dot" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="guests-dropdown__footer">
+                  <button class="guests-done" id="guestsDone" type="button">
+                    Готово
+                  </button>
+                </div>
+
+                <!-- hidden fields -->
+                <input type="hidden" name="adults" id="adultsInput" value="1" />
+                <input type="hidden" name="kids" id="kidsInput" value="0" />
+                <input
+                  type="hidden"
+                  name="extra_place_count"
+                  id="extraInput"
+                  value="0"
+                />
+                <input
+                  type="hidden"
+                  name="pets_count"
+                  id="petsInput"
+                  value="0"
+                />
+              </div>
+            </div>
+
+            <!-- Тип котеджу -->
+            <div class="field cottage-field" id="cottageField">
+              <div class="left-icon" aria-hidden="true">
+                <img src="/static/images/home.png" alt="" />
+              </div>
+
+              <div class="field-text" id="cottageText">Тип котеджу</div>
+
+              <button
+                class="right-icon"
+                id="cottageToggle"
+                type="button"
+                aria-expanded="false"
+              >
+                <img src="/static/images/arrow-down.png" alt="" />
+              </button>
+
+              <!-- Dropdown -->
+              <div class="cottage-dropdown" id="cottageDropdown" hidden>
+                <div class="cottage-option" data-value="Стандарт">Стандарт</div>
+                <div class="cottage-option" data-value="VIP">VIP</div>
+                <div class="cottage-option" data-value="На воді">На воді</div>
+                <div class="cottage-option" data-value="З лазнею">З лазнею</div>
+
+                <div class="cottage-footer">
+                  <button class="cottage-done" id="cottageDone" type="button">
+                    Готово
+                  </button>
+                </div>
+
+                <input type="hidden" name="cottage_type" id="cottageInput" />
+              </div>
+            </div>
+          </div>
+
+          <div class="date-row">
+            <!-- Телефон -->
+            <div class="field">
+              <div class="left-icon" aria-hidden="true">
+                <img src="/static/images/call-receive.png" alt="" />
+              </div>
+
+              <input
+                type="tel"
+                name="phone"
+                class="field-input"
+                placeholder="+380"
+                required
+                pattern="^\+380\d{9}$"
+                title="Введіть номер у форматі +380XXXXXXXXX"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="field">
+              <div class="left-icon" aria-hidden="true">
+                <img src="/static/images/mail.png" alt="" />
+              </div>
+
+              <input
+                type="email"
+                name="email"
+                class="field-input"
+                placeholder="Електронна пошта"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="wide-row">
+            <!-- ПІБ -->
+            <div class="field field--wide">
+              <div class="left-icon" aria-hidden="true">
+                <img src="/static/images/user.png" alt="" />
+              </div>
+
+              <input
+                type="text"
+                name="full_name"
+                class="field-input"
+                placeholder="Введіть прізвище та ім’я"
+                required
+              />
+            </div>
+
+            <!-- Коментар -->
+            <textarea
+              name="comment"
+              class="field-textarea"
+              placeholder="Коментар (необов’язково)"
+              rows="2"
+            ></textarea>
+
+            <div class="booking-summary">
+              <div class="summary-col">
+                <div class="summary-line">
+                  <strong>Заїзд</strong> <span id="sumCheckin">—</span>
+                </div>
+                <div class="summary-line">
+                  <strong>Виїзд</strong> <span id="sumCheckout">—</span>
+                </div>
+                <div class="summary-line">
+                  <strong>Тип котеджу</strong> <span id="sumCottage">—</span>
+                </div>
+                <div class="summary-line">
+                  <strong>Попередня вартість:</strong>
+                  <span id="sumPrice">—</span>
+                </div>
+              </div>
+
+              <div class="summary-divider" aria-hidden="true"></div>
+
+              <div class="summary-col">
+                <div class="summary-line">
+                  <strong>Кількість гостей:</strong>
+                </div>
+                <div class="summary-line" id="sumGuests">—</div>
+              </div>
+            </div>
+          </div>
+          <button class="send-btn" id="sendBtn" type="submit">
+            Надіслати заявку
+          </button>
+          <h4 class="descr6">
+            Натискаючи кнопку, ви погоджуєтеся з політикою обробки персональних
+            даних
+          </h4>
+          <div id="formMessage" class="form-message" hidden></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- VII BLOCK Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <a href="#top" class="logo footer__logo"></a>
+
+        <h2 class="footer__title">
+          Відпочиваючи в “Усладі” Ви відчуєте спокій і утихомирення
+        </h2>
+
+        <div class="footer__right">
+          <div class="contact">
+            <h3 class="cont-text">Контакти:</h3>
+            <p class="contact_text">067 111 19 11 - Рецепція</p>
+            <p class="contact_text">067 999 99 75 - Ресторан</p>
+
+            <h3 class="cont-text footer__addrTitle">Адреса:</h3>
+            <p class="contact_text">
+              с.Ломачинці, Дністровський р-н., Чернівеціка обл., 60235
+            </p>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/uslad.com.ua" target="_blank">
+              <img src="/static/images/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/tk_uslad/" target="_blank">
+              <img src="/static/images/instagram.png" alt="Instagram" />
+            </a>
+            <a href="https://www.youtube.com/@tvuslad" target="_blank">
+              <img src="/static/images/youtube.png" alt="YouTube" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
 </html>
