@@ -27,10 +27,28 @@ body {
 
 /* HEADER */
 .header {
+  width: 100%;
+  height: 104px;
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 20px 50px;
+  justify-content: space-between;
+  padding: 0px 90px;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    335.02deg,
+    rgba(255, 255, 255, 0.015) 19.83%,
+    rgba(153, 153, 153, 0.3) 88.12%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 
 .logo {
@@ -53,13 +71,16 @@ body {
 }
 
 .hed_text {
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
   color: #ffffff;
+
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   transition:
     transform 0.2s,
-    color 0.2s;
+    color 0.3s ease;
   z-index: 1;
 }
 
@@ -78,6 +99,75 @@ body {
   color: #e10511;
 }
 
+/* Контейнер для позиціонування */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Стилі для випадаючого вікна */
+.dropdown-content {
+  display: none; /* Сховано за замовчуванням */
+  position: absolute;
+  top: 100%; /* З'являється рівно під текстом */
+  left: 50%;
+  transform: translateX(-50%); /* Центрування відносно слова */
+  min-width: 180px;
+  margin-top: 10px; /* Невеликий відступ від хедера */
+  padding: 10px 0;
+
+  /* Скляний ефект як у хедера */
+  background: linear-gradient(
+    335.02deg,
+    rgba(255, 255, 255, 0.05) 19.83%,
+    rgba(153, 153, 153, 0.3) 88.12%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px; /* Заокруглені кути для м'якості дизайну */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+/* Посилання всередині випадаючого списку */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:
+    transform 0.2s,
+    color 0.2s,
+    background 0.2s;
+  text-align: center;
+}
+
+/* Анімація збільшення при наведенні (як і на основному меню) */
+.dropdown-content a:hover {
+  transform: scale(1.1);
+  color: #e10511; /* Колір при наведенні */
+  background: rgba(255, 255, 255, 0.05); /* Легкий підсвіт фону */
+}
+
+/* Показуємо меню при наведенні на "Апартаменти" */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Додаємо "невидимий місток", щоб меню не зникало, коли ви ведете мишкою вниз */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 15px;
+}
+
 /* Блок соцмереж */
 .first-block {
   position: relative;
@@ -92,7 +182,7 @@ body {
 .social-bar {
   position: absolute;
   right: 150px;
-  top: 50%;
+  margin-top: 850px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -132,6 +222,7 @@ body {
   align-items: center;
   text-align: center;
   position: relative;
+  top: 50px;
   z-index: 2;
 }
 
@@ -1258,7 +1349,7 @@ video {
 /* Center: title */
 .footer__title {
   flex: 1 1 auto;
-  max-width: 560px;
+  max-width: 270px;
   margin: 0;
   text-align: center;
 

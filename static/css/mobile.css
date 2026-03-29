@@ -10,6 +10,7 @@
 
   /* Header */
   .header {
+    height: 70px;
     flex-direction: row;
     justify-content: space-between;
     padding: 15px 25px;
@@ -42,7 +43,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 90px;
     order: 2;
   }
 
@@ -76,22 +77,26 @@
 
   .hed_nav {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(6px);
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    gap: 30px;
-    padding: 100px 20px 40px;
-    overflow-y: auto;
-    scrollbar-width: thin;
+
+    padding: 80px 20px 40px; /* відступ тільки під хедер */
+
     transform: translateX(100%);
     transition: transform 0.4s ease;
-    z-index: 1000;
-  }
 
+    z-index: 1000;
+    overflow-y: auto;
+  }
   .hed_nav.active {
     transform: translateX(0);
   }
@@ -101,7 +106,7 @@
   }
 
   .hed_text {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     color: white;
     text-decoration: none;
@@ -109,7 +114,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
   }
 
   .hed_text:hover {
@@ -156,7 +161,14 @@
     margin-top: -105px;
     border: 1px solid #e10511;
   }
+  .dropdown {
+    display: contents;
+  }
 
+  /* ховаємо випадаюче меню */
+  .dropdown-content {
+    display: none !important;
+  }
   /* =========================
      II BLOCK — MOBILE
      dots зʼявляються тільки тут

@@ -1,17 +1,5 @@
-/* script.js — FULL (fixed + formatted)
-   ------------------------------------------------------------
-   ✅ One single DOMContentLoaded wrapper (no nested DOMContentLoaded)
-   ✅ Fixed missing closing braces / stray tokens
-   ✅ Cottages carousel: infinite loop (with clones) + arrows + swipe
-   ✅ Dots: uses the EXISTING container in your HTML: [data-photo-dots]
-      (You can hide dots on desktop via CSS; show only in mobile.css)
-   ✅ Keeps your booking + other blocks logic as you had
-*/
-
+// MAIN PAGE I BLOCK
 document.addEventListener("DOMContentLoaded", () => {
-  /* =========================================================
-     Helpers
-  ========================================================= */
   console.log("SCRIPT JS LOADED");
   const $ = (id) => document.getElementById(id);
 
@@ -48,23 +36,55 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${yyyy}-${mm}-${dd}`;
   }
 
-  /* =========================================================
-     MAIN PAGE I BLOCK — Burger menu
-  ========================================================= */
   (function initBurger() {
-    const burger = $("burger");
-    const nav = $("nav-menu");
+    const burger = document.getElementById("burger");
+    const nav = document.getElementById("nav-menu");
+    const closeBtn = document.getElementById("menu-close");
+
     if (!burger || !nav) return;
 
-    burger.addEventListener("click", () => {
+    // 🔓 Відкрити / закрити меню
+    function toggleMenu() {
       burger.classList.toggle("active");
       nav.classList.toggle("active");
+
+      document.body.style.overflow = nav.classList.contains("active")
+        ? "hidden"
+        : "auto";
+    }
+    
+    function closeMenu() {
+      burger.classList.remove("active");
+      nav.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+
+    // 👉 Бургер
+    burger.addEventListener("click", toggleMenu);
+
+    // 👉 Хрестик
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeMenu);
+    }
+
+    // 👉 Клік по пункту меню
+    document.querySelectorAll(".hed_nav a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
 
-    document.querySelectorAll(".hed_nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        burger.classList.remove("active");
-        nav.classList.remove("active");
+    // 👉 Плавний скрол
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+          e.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       });
     });
   })();
