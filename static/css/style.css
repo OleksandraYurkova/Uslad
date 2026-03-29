@@ -1326,7 +1326,7 @@ video {
 /* VII BLOCK Footer (FINAL) */
 .footer {
   background: #232726;
-  padding: 34px 0;
+  padding: 340px 0;
 }
 
 .footer__inner {
@@ -1439,3 +1439,7 @@ video {
   transform: translateY(-2px);
   opacity: 1;
 }
+
+/*--------------------------------
+COTTAGE.HTML 
+---------------------------------*/

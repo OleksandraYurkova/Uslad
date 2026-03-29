@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Услад</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rufina:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/static/css/mobile.css"
+      media="(max-width: 768px)"
+    />
+  </head>
+
+  <body>
+    <div class="cottage_bg" id="top">
+      <!-- Header -->
+      <header class="header">
+        <a href="/" class="logo"></a>
+
+        <div class="burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="hed_nav" id="nav-menu">
+          <div class="menu-top">
+            <a href="/" class="menu-logo"></a>
+            <div class="menu-close" id="menu-close">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="menu-header">
+            <h3>Меню</h3>
+          </div>
+          <hr class="menu-line" />
+
+          <a href="/templates/index.html" class="hed_text">
+            Головна
+            <img
+              src="/static/images/Головна меню.png"
+              alt="Головна"
+              class="nav-photo"
+            />
+          </a>
+
+          <div class="dropdown">
+            <a href="#cottages" class="hed_text active" id="apartments-link">
+              Котеджі
+              <img
+                src="/static/images/Апартаменти меню.png"
+                alt="Апартаменти"
+                class="nav-photo"
+              />
+            </a>
+            <div class="dropdown-content">
+              <a href="/templates/cottage_standard.html">Стандарт</a>
+              <a href="/templates/cottage_vip.html">VIP</a>
+              <a href="/templates/cottage_bath.html">З лазнею</a>
+              <a href="/templates/cottage_water.html">На воді</a>
+            </div>
+          </div>
+
+          <a href="/templates/restaurant.html" class="hed_text">
+            Ресторан
+            <img
+              src="/static/images/Ресторан меню.png"
+              alt="Ресторан"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/services.html" class="hed_text">
+            Послуги
+            <img
+              src="/static/images/Послуги меню.png"
+              alt="Послуги"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/about.html" class="hed_text">
+            Про нас
+            <img
+              src="/static/images/Про нас меню.png"
+              alt="Про нас"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/contacts.html" class="hed_text">
+            Контакти
+            <img
+              src="/static/images/Контакти меню.png"
+              alt="Контакти"
+              class="nav-photo"
+            />
+          </a>
+
+          <a href="/templates/booking.html" class="hed_text">
+            Бронювання
+            <img
+              src="/static/images/Бронювання меню.png"
+              alt="Бронювання"
+              class="nav-photo"
+            />
+          </a>
+
+          <span class="hed_text phone-num">+380969909070</span>
+        </nav>
+      </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <footer class="footer">
+      <div class="footer__inner">
+        <a href="#top" class="logo footer__logo"></a>
+
+        <h2 class="footer__title">
+          Відпочиваючи в “Усладі” Ви відчуєте спокій і гармонію
+        </h2>
+
+        <div class="footer__right">
+          <div class="contact">
+            <h3 class="cont-text">Контакти:</h3>
+            <p class="contact_text">067 111 19 11 - Рецепція</p>
+            <p class="contact_text">067 999 99 75 - Ресторан</p>
+
+            <h3 class="cont-text footer__addrTitle">Адреса:</h3>
+            <p class="contact_text">
+              с.Ломачинці, Дністровський р-н., Чернівеціка обл., 60235
+            </p>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/uslad.com.ua" target="_blank">
+              <img src="/static/images/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/tk_uslad/" target="_blank">
+              <img src="/static/images/instagram.png" alt="Instagram" />
+            </a>
+            <a href="https://www.youtube.com/@tvuslad" target="_blank">
+              <img src="/static/images/youtube.png" alt="YouTube" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
