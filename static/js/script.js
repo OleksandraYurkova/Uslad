@@ -781,6 +781,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       renderGuestsUI();
+      guestsText.textContent = guestsFieldText(adults, kids);
       syncGuestsSummary();
     }
 

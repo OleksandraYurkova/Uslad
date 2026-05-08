@@ -5,5 +5,5 @@ def get_db():
         host="localhost",
         user="root",
         password="MdkGme3ZaIoSXpc1",
-        database="uslad",
+        database="usladbd",
     )
