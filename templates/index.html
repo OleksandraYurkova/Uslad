@@ -829,7 +829,159 @@
       </div>
     </div>
 
-    <!-- VII BLOCK Footer -->
+    <!-- VII BLOCK Review -->
+    <div class="rev_block" id="review">
+      <h2 class="II_title">Відгуки</h2>
+      <div class="VII_line"></div>
+
+      <!-- Якщо немає ще щодного відгуку -->
+      <div id="no-reviews" {% if reviews %}style="display:none"{% endif %}>
+  <p class="zero_review">
+    Наразі немає жодних відгуків. Хай Ваш відгук буде першим
+  </p>
+
+  <button type="button" class="review-btn open-review-form">
+  Додати відгук
+</button>
+</div>
+
+      <!-- після натискання на кнопку "Додати відгук" -->
+      <form id="review-form" style="display:none;">
+        <div class="top-row">
+          <input
+            type="text"
+            name="full_name"
+            class="review-input"
+            placeholder="Ваше ім’я"
+            required
+          />
+
+          <div class="rating-select">
+            <span data-rating="1"
+              ><svg viewBox="0 0 24 24" class="star">
+                <path
+                  class="star-path"
+                  d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                />
+              </svg>
+            </span>
+            <span data-rating="2"
+              ><svg viewBox="0 0 24 24" class="star">
+                <path
+                  class="star-path"
+                  d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                />
+              </svg>
+            </span>
+            <span data-rating="3"
+              ><svg viewBox="0 0 24 24" class="star">
+                <path
+                  class="star-path"
+                  d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                />
+              </svg>
+            </span>
+            <span data-rating="4"
+              ><svg viewBox="0 0 24 24" class="star">
+                <path
+                  class="star-path"
+                  d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                />
+              </svg>
+            </span>
+            <span data-rating="5"
+              ><svg viewBox="0 0 24 24" class="star">
+                <path
+                  class="star-path"
+                  d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+                />
+              </svg>
+            </span>
+          </div>
+
+          <input type="hidden" name="rating" id="rating-value" required />
+        </div>
+
+        <textarea
+          name="comment"
+          class="review-textarea"
+          placeholder="Ваш відгук"
+          required
+        ></textarea>
+
+        <button type="submit" class="review-btn">Надіслати відгук</button>
+      </form>
+      <!-- коли відгуки вже є -->
+
+      <div id="reviews-slider" {% if not reviews %}style="display:none"{% endif %}>
+
+  <div class="reviews-slider-wrapper">
+
+    <!-- LEFT -->
+    <button id="prev-review" class="review-arrow" type="button">
+      <img src="/static/images/Arrow-left.png">
+    </button>
+
+    <!-- CENTER -->
+    <div class="reviews-content">
+
+      {% for review in reviews %}
+      <div class="review-slide">
+
+        <div class="review-top">
+
+          <h3 class="authorName">{{ review.AuthorName }}</h3>
+
+          <div class="review-stars">
+            {% for i in range(review.Rating) %}
+              ★
+            {% endfor %}
+            {% for i in range(5 - review.Rating) %}
+              ☆
+            {% endfor %}
+          </div>
+
+        </div>
+
+        <p class="review-comment">
+          {{ review.Comment }}
+        </p>
+
+        <div class="review-date">
+          {{ review.CreatedAt.strftime('%d %B %Y') }}
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+
+    <!-- RIGHT -->
+    <button id="next-review" class="review-arrow" type="button">
+      <img src="/static/images/Arrow-right.png">
+    </button>
+
+  </div>
+
+  <button type="button" class="review-btn open-review-form">
+  Додати відгук
+</button>
+
+</div>
+</div>
+ </div>
+    <div class="popup-overlay" id="success-popup">
+  <div class="popup-box">
+    <h2>Відгук успішно надіслано</h2>
+
+    <button id="close-popup" class="review-btn">
+      Повернутися на головну
+    </button>
+  </div>
+</div>
+    </div>
+
+    <!-- VIII BLOCK Footer -->
     <footer class="footer">
       <div class="footer__inner">
         <a href="#top" class="logo footer__logo"></a>

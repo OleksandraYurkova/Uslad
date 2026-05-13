@@ -42,18 +42,28 @@ def calculate_estimated_price(
     total = total_base_price + extra_charges + pet_charges
     return total.quantize(Decimal("0.01")), nights
 
-
-@app.get("/")
-def index():
+@app.route("/")
+def home():
     cnx = get_db()
     cur = cnx.cursor(dictionary=True)
-    
+
+    # КОТЕДЖІ
     cur.execute("""
-        SELECT CottageTypeID, Name, ShortDescription, CheckInTime, CheckOutTime 
-        FROM CottageType 
+        SELECT CottageTypeID, Name, ShortDescription,
+               CheckInTime, CheckOutTime
+        FROM CottageType
         ORDER BY CottageTypeID
     """)
     cottages = cur.fetchall()
+
+    # ВІДГУКИ
+    cur.execute("""
+        SELECT *
+        FROM Review
+        ORDER BY CreatedAt DESC
+    """)
+    reviews = cur.fetchall()
+
     cur.close()
     cnx.close()
 
@@ -64,8 +74,12 @@ def index():
         4: [url_for("static", filename="images/sauna.jpg")],
     }
 
-    return render_template("index.html", cottages=cottages, images_map=images_map)
-
+    return render_template(
+        "index.html",
+        cottages=cottages,
+        images_map=images_map,
+        reviews=reviews
+    )
 
 @app.post("/api/estimate")
 def api_estimate():
@@ -213,6 +227,33 @@ def book():
     except Exception as e:
         if 'cnx' in locals(): cnx.rollback()
         return jsonify({"ok": False, "error": f"Помилка сервера: {str(e)}"}), 500
+
+
+@app.route("/submit_review", methods=["POST"])
+def submit_review():
+    from db import get_db  # 👈 ДОДАЙ
+
+    cnx = get_db()
+    cursor = cnx.cursor()
+
+    name = request.form.get("full_name")
+    rating = request.form.get("rating")
+    comment = request.form.get("comment")
+
+    if not name or not rating:
+        return jsonify({"success": False})
+
+    query = """
+        INSERT INTO Review (AuthorName, Rating, Comment)
+        VALUES (%s, %s, %s)
+    """
+    cursor.execute(query, (name, rating, comment))
+    cnx.commit()
+
+    cursor.close()
+    cnx.close()
+
+    return jsonify({"success": True})
 
 if __name__ == "__main__":
     app.run(debug=True)

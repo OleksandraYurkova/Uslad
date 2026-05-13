@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!burger || !nav) return;
 
-    // 🔓 Відкрити / закрити меню
+    // Відкрити / закрити меню
     function toggleMenu() {
       burger.classList.toggle("active");
       nav.classList.toggle("active");
@@ -52,27 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "hidden"
         : "auto";
     }
-    
+
     function closeMenu() {
       burger.classList.remove("active");
       nav.classList.remove("active");
       document.body.style.overflow = "auto";
     }
 
-    // 👉 Бургер
+    // Бургер
     burger.addEventListener("click", toggleMenu);
-
-    // 👉 Хрестик
     if (closeBtn) {
       closeBtn.addEventListener("click", closeMenu);
     }
 
-    // 👉 Клік по пункту меню
+    // Клік по пункту меню
     document.querySelectorAll(".hed_nav a").forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
 
-    // 👉 Плавний скрол
+    // Плавний скрол
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         const target = document.querySelector(this.getAttribute("href"));
@@ -318,16 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 
-  /* =========================================================
-     MAIN PAGE V BLOCK — Cottages carousel (infinite + swipe + dots)
-     - Dots container is your existing: [data-photo-dots]
-       (Show dots only in mobile.css, hide on desktop)
-  ========================================================= */
-  /* =========================================================
-   MAIN PAGE V BLOCK — Cottages carousel (infinite + swipe + dots)
-   - Dots container: [data-cottages-dots]
-   - Show dots only in mobile.css, hide on desktop
-========================================================= */
+  /* MAIN PAGE V BLOCK — Cottages carousel */
+
   (function initCottagesCarousel() {
     const carousel = document.querySelector(
       '#cottages [data-carousel="cottages"]',
@@ -377,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return ri;
     }
 
-    // ✅ Dots: use your container [data-cottages-dots]
+    //Dots: use your container [data-cottages-dots]
     const dotsWraps = slides
       .map((s) => s.querySelector("[data-cottages-dots]"))
       .filter(Boolean);
@@ -404,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function goToReal(realIndex) {
-      index = realIndex + 1; // 0..realLen-1 -> 1..realLen
+      index = realIndex + 1;
       setTransform(true);
       setActiveDot(realIndex);
     }
@@ -952,4 +942,189 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start
     estimatePrice();
   })();
+});
+const stars = document.querySelectorAll("#ratingStars span");
+
+let selectedRating = 0;
+
+stars.forEach((star) => {
+  star.addEventListener("click", () => {
+    selectedRating = star.dataset.rating;
+
+    stars.forEach((s) => {
+      s.classList.remove("active");
+    });
+
+    for (let i = 0; i < selectedRating; i++) {
+      stars[i].classList.add("active");
+    }
+  });
+});
+// нове додано
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("review-form");
+  const openBtns = document.querySelectorAll(".open-review-form");
+  const noReviews = document.getElementById("no-reviews");
+
+  const popup = document.getElementById("success-popup");
+  const closePopup = document.getElementById("close-popup");
+
+  // ======================
+  // SLIDER
+  // ======================
+
+  const slides = document.querySelectorAll(".review-slide");
+
+  const prevBtn = document.getElementById("prev-review");
+  const nextBtn = document.getElementById("next-review");
+
+  const slider = document.getElementById("reviews-slider");
+
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide) => {
+      slide.style.display = "none";
+      slide.style.opacity = "0";
+    });
+
+    slides[index].style.display = "block";
+
+    requestAnimationFrame(() => {
+      slides[index].style.opacity = "1";
+    });
+  }
+
+  if (slides.length > 0) {
+    // якщо лише 1 відгук — ховаємо стрілки
+    if (slides.length <= 1) {
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+    }
+
+    showSlide(currentIndex);
+
+    // LEFT
+    prevBtn.addEventListener("click", () => {
+      currentIndex--;
+
+      if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+      }
+
+      showSlide(currentIndex);
+    });
+
+    // RIGHT
+    nextBtn.addEventListener("click", () => {
+      currentIndex++;
+
+      if (currentIndex >= slides.length) {
+        currentIndex = 0;
+      }
+
+      showSlide(currentIndex);
+    });
+  }
+
+  // ======================
+  // OPEN FORM
+  // ======================
+
+  openBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      noReviews.style.display = "none";
+
+      if (slider) {
+        slider.style.display = "none";
+      }
+
+      form.style.display = "flex";
+
+      form.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    });
+  });
+
+  // ======================
+  // STARS
+  // ======================
+
+  const stars = document.querySelectorAll(".rating-select span");
+
+  const ratingInput = document.getElementById("rating-value");
+
+  stars.forEach((star) => {
+    star.addEventListener("click", () => {
+      const rating = star.getAttribute("data-rating");
+
+      ratingInput.value = rating;
+
+      stars.forEach((s) => {
+        s.classList.remove("active");
+      });
+
+      stars.forEach((s) => {
+        if (s.getAttribute("data-rating") <= rating) {
+          s.classList.add("active");
+        }
+      });
+    });
+  });
+
+  // ======================
+  // SUBMIT
+  // ======================
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!ratingInput.value) {
+      alert("Оберіть оцінку");
+      return;
+    }
+
+    if (!form.comment.value.trim()) {
+      alert("Напишіть відгук");
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("/submit_review", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        form.style.display = "none";
+
+        popup.classList.add("active");
+
+        form.reset();
+
+        ratingInput.value = "";
+
+        stars.forEach((s) => {
+          s.classList.remove("active");
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Помилка при надсиланні відгуку");
+    }
+  });
+
+  // ======================
+  // POPUP CLOSE
+  // ======================
+
+  closePopup.addEventListener("click", () => {
+    window.location.reload();
+  });
 });
