@@ -255,5 +255,31 @@ def submit_review():
 
     return jsonify({"success": True})
 
+@app.route("/cottage/<int:id>")
+def cottage_page(id):
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT *
+        FROM CottageType
+        WHERE CottageTypeID = %s
+    """, (id,))
+
+    cottage = cursor.fetchone()
+
+    images_map = {
+        1: [url_for("static", filename="images/std.png")],
+        2: [url_for("static", filename="images/vip.png")],
+        3: [url_for("static", filename="images/wtr.png")],
+        4: [url_for("static", filename="images/spa.png")],
+    }
+
+    return render_template(
+        "cottage.html",
+        cottage=cottage,
+        images_map=images_map
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)

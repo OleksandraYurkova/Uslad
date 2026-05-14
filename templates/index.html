@@ -65,12 +65,22 @@
               />
             </a>
             <div class="dropdown-content">
-              <a href="/templates/cottage_standard.html">Стандарт</a>
-              <a href="/templates/cottage_vip.html">VIP</a>
-              <a href="/templates/cottage_bath.html">З лазнею</a>
-              <a href="/templates/cottage_water.html">На воді</a>
+              <a href="{{ url_for('cottage_page', id=1) }}">
+      Стандарт
+    </a>
+
+    <a href="{{ url_for('cottage_page', id=2) }}">
+      VIP
+    </a>
+
+    <a href="{{ url_for('cottage_page', id=3) }}">
+      На воді
+    </a>
+              <a href="{{ url_for('cottage_page', id=4) }}">
+      З лазнею
+    </a>
             </div>
-          </div>
+          </div> 
 
           <a href="/templates/restaurant.html" class="hed_text">
             Ресторан
@@ -446,7 +456,12 @@
                   <p class="mtext5">{{ cottage.Name }}</p>
                   <p class="v-details-desc">{{ cottage.ShortDescription }}</p>
 
-                  <a href="#" class="main-btn">Дивитися більше</a>
+                  <a 
+  href="{{ url_for('cottage_page', id=cottage.CottageTypeID) }}"
+  class="main-btn"
+>
+  Дивитися більше
+</a>
 
                   <div class="cottage-dots" data-cottages-dots></div>
                 </div>

@@ -45,15 +45,14 @@
           </div>
           <hr class="menu-line" />
 
-          <a href="/templates/index.html" class="hed_text">
+          <a href="{{ url_for('home') }}" class="hed_text">
             Головна
             <img
               src="/static/images/Головна меню.png"
               alt="Головна"
               class="nav-photo"
             />
-          </a>
-
+          </a>    
           <div class="dropdown">
             <a href="#cottages" class="hed_text active" id="apartments-link">
               Котеджі
@@ -64,12 +63,22 @@
               />
             </a>
             <div class="dropdown-content">
-              <a href="/templates/cottage_standard.html">Стандарт</a>
-              <a href="/templates/cottage_vip.html">VIP</a>
-              <a href="/templates/cottage_bath.html">З лазнею</a>
-              <a href="/templates/cottage_water.html">На воді</a>
+              <a href="{{ url_for('cottage_page', id=1) }}">
+      Стандарт
+    </a>
+
+    <a href="{{ url_for('cottage_page', id=2) }}">
+      VIP
+    </a>
+
+    <a href="{{ url_for('cottage_page', id=3) }}">
+      На воді
+    </a>
+              <a href="{{ url_for('cottage_page', id=4) }}">
+      З лазнею
+    </a>
             </div>
-          </div>
+          </div> 
 
           <a href="/templates/restaurant.html" class="hed_text">
             Ресторан
@@ -120,23 +129,36 @@
         </nav>
       </header>
 
+      <!-- I Block -->
 
+  <div 
+  class="cottage_bg"
+  id="top"
+  style="background-image: url('{{ images_map[cottage.CottageTypeID][0] }}');"
+>
 
+<div class="hero_content">
+ <p class="breadcrumb">
+  <a href="{{ url_for('home') }}">Головна</a>
 
+  <span>/</span>
 
+  <a href="{{ url_for('home') }}#cottages">Котеджі</a>
 
+  <span>/</span>
 
-
-
-
-
-
-
-
-
-
-
-
+  {{ cottage.Name }}
+</p>
+<h2 class="cot">Котедж</h2>
+<h1 class="cotname">«{{ cottage.Name }}»</h1>
+<p class="cotsubtitle">
+      Місце спокою та гармонії
+    </p>
+  <button class="book-btn" id="gobook" type="submit">
+            Забронювати
+          </button>
+</div>
+</div>
 
 
 
