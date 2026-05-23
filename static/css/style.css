@@ -1879,7 +1879,10 @@ COTTAGE.HTML
   content: "";
   position: absolute;
   inset: 0;
+  height: 570px;
   background: rgba(0,0,0,0.35);
+  isolation: isolate;
+  z-index: -1;
 }
 
 .hero_content {
@@ -1952,4 +1955,295 @@ COTTAGE.HTML
 .book-btn:hover {
   background: #b80000;
   transform: scale(1.03);
+}
+
+/* cottage - Info block */
+.desc-price-wrapper {
+  display: flex;
+  gap: 40px;
+  padding: 55px 70px;
+  align-items: flex-start;
+  margin-bottom: 0px;
+}
+
+
+/* LEFT */
+.desc-block {
+  width: 48%;
+}
+
+.section-title {
+  font-family: Rufina, serif;
+font-weight: 700;
+font-size: 30px;
+margin-bottom: 18px;
+color: #fff;
+}
+
+.cot-line {
+  width: 100%;
+  height: 1px;
+  background: #373535;
+  margin-bottom: 28px;
+}
+
+.full_desc {
+  color: #fff;
+  line-height: 1.8;
+  text-align: justify;
+  font-family: Average Sans , sans-serif;
+font-weight: 400;
+font-size: 16px;
+  line-height: 1.9;
+  max-width: 520px;
+}
+
+/* CENTER LINE */
+.vertical-line {
+  width: 1px;
+  height: 500px;
+  background: #373535;
+  margin-top: 90px;
+
+}
+
+/* RIGHT */
+.price-section {
+  width: 52%;
+}
+
+.price-cards {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px;
+  margin-bottom: 25px;
+}
+
+.price-card {
+  width: 210px;
+  border: 1px solid #373535;
+  border-radius: 15px;
+  padding: 14px 18px;
+
+}
+
+.day {
+  color: #fff;
+  margin-bottom: 1px;
+  font-family: Roboto;
+font-weight: 400;
+font-size: 14px;
+text-align: justify;
+}
+
+.price-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.price {
+  font-family: Average Sans;
+font-weight: 400;
+font-size: 45px;
+text-align: center;
+text-transform: capitalize;
+color: #fff;
+line-height: 1;
+
+}
+
+.currency-block {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.currency {
+  font-family: Average Sans;
+font-weight: 400;
+font-size: 20px;
+text-align: justify;
+color: #fff;
+
+}
+
+.per-person {
+  color: #cfcfcf;
+  margin-top: 2px;
+  font-family: Average Sans;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+text-align: justify;
+}
+
+/* INFO */
+.price-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  gap: 1px;
+  margin-top: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.info-item svg {
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.info-item p {
+  color: #fff;
+  font-family: Average Sans;
+font-weight: 400;
+font-size: 17px;
+text-align: justify;
+margin: 10px;
+}
+
+/* CLOCK */
+.clock-block {
+  width: 100%;
+  max-width: 520px;
+  height: 88px;
+  border: 1px solid #373535;
+  border-radius: 15px;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.clock-item {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+.clock-item p {
+  margin: 0;
+}
+
+.clock-divider {
+  width: 1px;
+  height: 70px;
+  background: #373535;
+  margin-top: 5px;
+}
+
+.clock-label {
+  color: #bdbdbd;
+  font-family: Average Sans, sans-serif;
+font-weight: 400;
+font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.clock-time {
+    font-family: "Average Sans", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: #fff;
+  line-height: 1;
+}
+.h-line{
+   width: 1200px;
+  height: 2px;
+  background: #373535;
+  margin: 1px auto 0;
+} 
+
+/* Cottage - Amenity Block */
+.amenity{
+  padding: 80px;
+}
+.cot-title{
+   font-family: Rufina, serif;
+font-weight: 700;
+font-size: 30px;
+margin-bottom: 18px;
+color: #fff;
+text-align: center;
+margin-bottom: 50px;
+}
+.amenities {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 70px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px 60px;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.amenity-item i {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* Cottage - Photo Block */
+.photo-set {
+  width: 100%;
+  background: #1f2423;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.photo-grid {
+  width: fit-content;
+  margin: 0 auto 60px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 278px);
+  grid-auto-rows: 280px;
+  gap: 22px;
+}
+
+/* контейнер фото */
+.photo-item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* затемнення */
+.photo-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #00000033;
+  pointer-events: none;
+}
+
+.cot-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* велике фото */
+.photo-item.wide {
+  grid-column: span 2;
+  width: 585px;
+  height: 280px;
 }

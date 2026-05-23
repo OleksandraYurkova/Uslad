@@ -231,7 +231,7 @@ def book():
 
 @app.route("/submit_review", methods=["POST"])
 def submit_review():
-    from db import get_db  # 👈 ДОДАЙ
+    from db import get_db 
 
     cnx = get_db()
     cursor = cnx.cursor()
@@ -260,13 +260,46 @@ def cottage_page(id):
     db = get_db()
     cursor = db.cursor(dictionary=True)
 
+    # cottage info
     cursor.execute("""
-        SELECT *
-        FROM CottageType
+        SELECT ct.*, c.MaxGuests
+        FROM CottageType ct
+        JOIN Cottage c ON c.CottageTypeID = ct.CottageTypeID
+        WHERE ct.CottageTypeID = %s
+        LIMIT 1
+    """, (id,))
+    cottage = cursor.fetchone()
+
+    # weekday price
+    cursor.execute("""
+        SELECT PricePerNight
+        FROM CottageTypePrice
         WHERE CottageTypeID = %s
+        AND DayType = 'weekday'
+    """, (id,))
+    weekday_price = cursor.fetchone()
+
+    # weekend price
+    cursor.execute("""
+        SELECT PricePerNight
+        FROM CottageTypePrice
+        WHERE CottageTypeID = %s
+        AND DayType = 'weekend'
+    """, (id,))
+    weekend_price = cursor.fetchone()
+
+    # amenities
+    cursor.execute("""
+        SELECT a.Name, a.Icon
+        FROM CottageTypeAmenity cta
+        JOIN Amenity a ON a.AmenityID = cta.AmenityID
+        WHERE cta.CottageTypeID = %s
     """, (id,))
 
-    cottage = cursor.fetchone()
+    amenities = cursor.fetchall()
+
+    cursor.close()
+    db.close()
 
     images_map = {
         1: [url_for("static", filename="images/std.png")],
@@ -275,11 +308,60 @@ def cottage_page(id):
         4: [url_for("static", filename="images/spa.png")],
     }
 
+    photos_map = {
+        1: [
+            "1.1.png",
+            "1.2.png",
+            "1.3.png",
+            "1.4.png",
+            "1.5.png",
+            "1.6.png",
+            "1.7.png"
+        ],
+
+        2: [
+            "2.1.png",
+            "2.2.png",
+            "2.3.png",
+            "2.4.png",
+            "2.5.png",
+            "2.6.png",
+            "2.7.png"
+        ],
+
+        3: [
+            "3.1.png",
+            "3.2.png",
+            "3.3.png",
+            "3.4.png",
+            "3.5.png",
+            "3.6.png",
+            "3.7.png"
+        ],
+
+        4: [
+            "4.1.png",
+            "4.2.png",
+            "4.3.png",
+            "4.4.png",
+            "4.5.png",
+            "4.6.png",
+            "4.7.png"
+        ]
+    }
+
     return render_template(
         "cottage.html",
         cottage=cottage,
-        images_map=images_map
+        weekday_price=weekday_price,
+        weekend_price=weekend_price,
+        amenities=amenities,
+        images_map=images_map,
+        photos=photos_map.get(id, [])
     )
+@app.route("/contacts")
+def contacts():
+    return render_template("contacts.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

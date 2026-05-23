@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rufina:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/style.css" />
@@ -107,16 +109,16 @@
             />
           </a>
 
-          <a href="/templates/contacts.html" class="hed_text">
-            Контакти
-            <img
-              src="/static/images/Контакти меню.png"
-              alt="Контакти"
-              class="nav-photo"
-            />
-          </a>
+         <a href="{{ url_for('contacts') }}" class="hed_text">
+  Контакти
+  <img
+    src="/static/images/Контакти меню.png"
+    alt="Контакти"
+    class="nav-photo"
+  />
+</a>
 
-          <a href="/templates/booking.html" class="hed_text">
+          <a href="/#booking" class="hed_text">
             Бронювання
             <img
               src="/static/images/Бронювання меню.png"
@@ -154,17 +156,237 @@
 <p class="cotsubtitle">
       Місце спокою та гармонії
     </p>
-  <button class="book-btn" id="gobook" type="submit">
+  <button class="book-btn go-booking" type="button">
             Забронювати
           </button>
 </div>
 </div>
 
+<!-- II Block -->
+ 
+<div class="desc-price-wrapper">
+  <!-- LEFT SIDE -->
+  <div class="desc-block">
+    <h3 class="section-title">Опис</h3>
+    <div class="cot-line"></div>
+
+    <div class="full_desc">
+  {{ cottage.FullDescription | replace('\n', '<br><br>') | safe }}
+</div>
+  </div>
+  <div class="vertical-line"></div>
+
+  <!-- RIGHT SIDE -->
+  <div class="price-section">
+    <h3 class="section-title">Ціна за ніч</h3>
+    <div class="price-cards">
+      <!-- WEEKDAY -->
+      <div class="price-card">
+        <p class="day">(пн-чт)</p>
+
+        <div class="price-row">
+          <span class="price">
+            {{ weekday_price.PricePerNight|int }}
+          </span>
+
+          <div class="currency-block">
+            <span class="currency">Грн</span>
+            <span class="per-person">за 1 особу</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEKEND -->
+      <div class="price-card">
+        <p class="day">(пт-нд)</p>
+
+        <div class="price-row">
+          <span class="price">
+            {{ weekend_price.PricePerNight|int }}
+          </span>
+
+          <div class="currency-block">
+            <span class="currency">Грн</span>
+            <span class="per-person">за 1 особу</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="price-info">
+
+      <div class="info-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="#fff" d="M9.175 10.825Q8 9.65 8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12t-2.825-1.175M4 20v-2.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20z"/>
+        </svg>
+
+        <p>Максимальна кількість гостей: {{ cottage.MaxGuests }}</p>
+      </div>
+
+      <div class="info-item">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#fff" d="M9.625 17.4Q8.55 16.8 7.9 15.75q-.15-.25-.012-.5t.437-.25h7.35q.275 0 .425.25t0 .5q-.65 1.05-1.725 1.65T12 18t-2.375-.6m-1.012-4.262q-.363-.363-.363-.888t.363-.888T9.5 11t.888.363t.362.887t-.363.888t-.887.362t-.888-.363m5 0q-.362-.362-.362-.887t.363-.888T14.5 11t.888.363t.362.887t-.363.888t-.887.362t-.888-.363M12 22q-3.725 0-6.337-2.588T3 13.1l2.025-.75Q5 12.525 5 12.675V13q0 2.925 2.038 4.963T12 20t4.963-2.037T19 13q0-.4-.038-.788t-.137-.762q-1.5-.175-2.838-.762T13.526 9.15l5.325-2q1.025 1.2 1.588 2.688T21 13q0 1.875-.712 3.513t-1.925 2.85t-2.85 1.925T12 22M3.4 11.375q-.175-.5-.287-1.025T3 9.275Q3 7 4.275 5.2T7.5 2.4q-.05-.1-.062-.187T7.425 2q0-.425.288-.712T8.425 1q.35 0 .6.2t.35.5q.55-.125 1.088-.2t1.112-.075q1.675 0 3.188.65t2.662 1.875l2.125-.8q.4-.15.763.025t.512.575t-.012.763t-.563.512z" />
+</svg>
+
+        <p>Діти до 12 років безкоштовно</p>
+      </div>
+
+      <div class="info-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="#fff" d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3s1.34 3 3 3m12-3h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4"/>
+        </svg>
+
+        <p>
+          Додаткове місце:
+          {{ cottage.ExtraPlacePrice|int }} грн
+        </p>
+      </div>
+
+      <div class="info-item">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14">
+	<path d="M0 0h14v14H0z" fill="none" />
+	<path fill="#fff" fill-rule="evenodd" d="M3.627 1.662C3.867 1.302 4.255 1 4.75 1s.883.301 1.123.662c.243.364.377.839.377 1.338s-.134.974-.377 1.338c-.24.36-.628.662-1.123.662s-.883-.301-1.123-.662C3.384 3.974 3.25 3.499 3.25 3s.134-.974.377-1.338M1.5 4.75c-.495 0-.883.301-1.123.662C.134 5.776 0 6.251 0 6.75s.134.974.377 1.338c.24.36.628.662 1.123.662s.883-.301 1.123-.662C2.866 7.724 3 7.249 3 6.75s-.134-.974-.377-1.338c-.24-.36-.628-.662-1.123-.662M9.25 1c-.495 0-.883.301-1.123.662c-.243.364-.377.839-.377 1.338s.134.974.377 1.338c.24.36.628.662 1.123.662s.883-.301 1.123-.662c.243-.364.377-.839.377-1.338s-.134-.974-.377-1.338C10.133 1.302 9.745 1 9.25 1m2.127 4.412c.24-.36.628-.662 1.123-.662s.883.301 1.123.662c.243.364.377.839.377 1.338s-.134.974-.377 1.338c-.24.36-.628.662-1.123.662s-.883-.301-1.123-.662C11.134 7.724 11 7.249 11 6.75s.134-.974.377-1.338m-7.252 5.156c0-.613.245-1.435.747-2.095C5.362 7.83 6.066 7.375 7 7.375s1.638.454 2.128 1.098c.502.66.747 1.482.747 2.095c0 .439-.26.81-.814 1.103c-.561.298-1.33.454-2.061.454s-1.5-.156-2.061-.454c-.555-.294-.814-.664-.814-1.103M7 6.125c-1.4 0-2.446.702-3.122 1.591c-.665.873-1.003 1.96-1.003 2.852c0 1.067.686 1.788 1.478 2.208c.787.417 1.769.599 2.647.599s1.86-.182 2.647-.6c.792-.42 1.478-1.14 1.478-2.207c0-.892-.338-1.979-1.003-2.852C9.446 6.826 8.4 6.125 7 6.125" clip-rule="evenodd" />
+</svg>
+
+        <p>
+          Проживання невеликих тварин:
+          {{ cottage.PetPrice|int }} грн
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CLOCK -->
+    <div class="clock-block">
+      <div class="clock-item">
+        <p class="clock-label">Час заїзду</p>
+        <p class="clock-time">
+ {{ cottage.CheckInTime|string|replace(':00', '', 1) }}
+</p>
+      </div>
+
+      <div class="clock-divider"></div>
+
+      <div class="clock-item">
+        <p class="clock-label">Час виїзду</p>
+        <p class="clock-time">
+          {{ cottage.CheckOutTime|string|replace(':00', '', 1) }}
+</p>
+      </div>
+
+    </div>
+
+    <button class="book-btn go-booking" type="button">
+            Забронювати
+          </button>
+  </div>
+</div>
+<div class="h-line"></div>
+
+<!-- III Block Amenity -->
+<div class="amenity">
+    <h3 class="cot-title">Зручності</h3>
+
+    <div class="amenities-grid">
+        {% for amenity in amenities %}
+            <div class="amenity-item">
+
+                {% if amenity.Name == "Двоспальне ліжко" %}
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20"
+                         height="20"
+                         viewBox="0 0 24 24">
+
+                        <path d="M0 0h24v24H0z" fill="none"/>
+
+                        <path fill="#fff"
+                              d="M2 19v-6q0-.675.275-1.225T3 10.8V8
+                                 q0-1.25.875-2.125T6 5h4
+                                 q.575 0 1.075.213T12 5.8
+                                 q.425-.375.925-.587T14 5h4
+                                 q1.25 0 2.125.875T21 8v2.8
+                                 q.45.425.725.975T22 13v6h-2v-2H4v2zm11-9h6V8
+                                 q0-.425-.288-.712T18 7h-4
+                                 q-.425 0-.712.288T13 8zm-8 0h6V8
+                                 q0-.425-.288-.712T10 7H6
+                                 q-.425 0-.712.288T5 8zm-1 5h16v-2
+                                 q0-.425-.288-.712T19 12H5
+                                 q-.425 0-.712.288T4 13zm16 0H4z"/>
+                    </svg>
+
+                {% elif amenity.Name == "Два ліжка" %}
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20"
+                         height="20"
+                         viewBox="0 0 24 24">
+
+                        <path d="M0 0h24v24H0z" fill="none"/>
+
+                        <path fill="#fff"
+                              d="M2 19v-6q0-.675.275-1.225T3 10.8V8
+                                 q0-1.25.875-2.125T6 5h4
+                                 q.575 0 1.075.213T12 5.8
+                                 q.425-.375.925-.587T14 5h4
+                                 q1.25 0 2.125.875T21 8v2.8
+                                 q.45.425.725.975T22 13v6h-2v-2H4v2zm11-9h6V8
+                                 q0-.425-.288-.712T18 7h-4
+                                 q-.425 0-.712.288T13 8zm-8 0h6V8
+                                 q0-.425-.288-.712T10 7H6
+                                 q-.425 0-.712.288T5 8zm-1 5h16v-2
+                                 q0-.425-.288-.712T19 12H5
+                                 q-.425 0-.712.288T4 13zm16 0H4z"/>
+                    </svg>
+
+                {% else %}
+
+                    <i class="{{ amenity.Icon }}"></i>
+
+                {% endif %}
+
+                <span>{{ amenity.Name }}</span>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="h-line"></div>
+
+<!-- IV Block Photo set-->
+<div class="photo-set">
+  <h3 class="cot-title">Фото котеджу</h3>
+
+<div class="photo-grid">
+
+    {% for photo in photos %}
+
+      <div class="photo-item {% if loop.last %}wide{% endif %}">
+        <img
+          src="{{ url_for('static', filename='images/' ~ photo) }}"
+          alt="Фото котеджу"
+          class="cot-photo"
+        >
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+   <button class="book-btn go-booking" type="button">
+            Забронювати
+          </button>
+</div>
+<div class="h-line"></div>
 
 
-
-
-      <!-- <footer class="footer">
+</div>
+<footer class="footer">
       <div class="footer__inner">
         <a href="#top" class="logo footer__logo"></a>
 
@@ -197,7 +419,7 @@
           </div>
         </div>
       </div>
-    </footer> -->
+    </footer> 
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>

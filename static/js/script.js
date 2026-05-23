@@ -1027,10 +1027,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ======================
   // OPEN FORM
-  // ======================
-
   openBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       noReviews.style.display = "none";
@@ -1048,10 +1045,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ======================
   // STARS
-  // ======================
-
   const stars = document.querySelectorAll(".rating-select span");
 
   const ratingInput = document.getElementById("rating-value");
@@ -1074,10 +1068,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ======================
   // SUBMIT
-  // ======================
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -1120,11 +1111,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ======================
   // POPUP CLOSE
-  // ======================
-
   closePopup.addEventListener("click", () => {
     window.location.reload();
+  });
+});
+
+document.querySelectorAll(".go-booking").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.location.href = "/#booking";
   });
 });
