@@ -34,7 +34,7 @@
         </div>
 
         <nav class="hed_nav" id="nav-menu">
-          <div class="menu-top">
+          <div class="menu-to p">
             <a href="/" class="menu-logo"></a>
             <div class="menu-close" id="menu-close">
               <span></span>
@@ -80,7 +80,7 @@
             </div>
           </div> 
 
-          <a href="/templates/restaurant.html" class="hed_text">
+          <a href="{{ url_for('restaurant')}}" class="hed_text">
             Ресторан
             <img
               src="/static/images/Ресторан меню.png"
@@ -89,7 +89,7 @@
             />
           </a>
 
-          <a href="/templates/services.html" class="hed_text">
+          <a href="{{ url_for('services') }}" class="hed_text">
             Послуги
             <img
               src="/static/images/Послуги меню.png"
@@ -98,7 +98,7 @@
             />
           </a>
 
-          <a href="/templates/about.html" class="hed_text">
+          <a href="{{ url_for('about')}}" class="hed_text">
             Про нас
             <img
               src="/static/images/Про нас меню.png"

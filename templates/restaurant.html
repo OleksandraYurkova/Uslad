@@ -1,31 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ua">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Услад ресторан</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="rest_bg">
-        <div>
-            <header class="header">
-                <a href="#" onclick="location.reload(); return false" class="logo"></a>
-                <nav class="hed_nav">
-                <a href="/templates/index.html" class="hed_text">Головна</a>
-                <a href="/templates/apartments.html" class="hed_text">Апартаменти</a>
-                <a href="/.html" onclick="location.reload(); return false" class="hed_text active">Ресторан</a>
-                <a href="/templates/services.html" class="hed_text">Послуги</a>
-                <a href="/templates/contacts.html" class="hed_text">Контакти</a>
-                <a href="/templates/about.html" class="hed_text">Про нас</a>
-                <a href="/templates/booking.html" class="hed_text">Бронювання</a>
-                <span class="hed_text">+380969909070</span>
-                </nav>
-            </header>
-        </div>
+      <div>
+        <header class="header">
+          <a href="/" class="logo"></a>
+
+          <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <nav class="hed_nav" id="nav-menu">
+            <div class="menu-top">
+              <a href="/" class="menu-logo"></a>
+              <div class="menu-close" id="menu-close">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="menu-header">
+              <h3>Меню</h3>
+            </div>
+            <hr class="menu-line" />
+
+            <a href="{{ url_for('home') }}" class="hed_text">
+              Головна
+              <img
+                src="/static/images/Головна меню.png"
+                alt="Головна"
+                class="nav-photo"
+              />
+            </a>
+            <div class="dropdown">
+              <a
+                href="{{ url_for('home') }}#cottages"
+                class="hed_text"
+                id="apartments-link"
+              >
+                Котеджі
+                <img
+                  src="/static/images/Апартаменти меню.png"
+                  alt="Апартаменти"
+                  class="nav-photo"
+                />
+              </a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('cottage_page', id=1) }}"> Стандарт </a>
+
+                <a href="{{ url_for('cottage_page', id=2) }}"> VIP </a>
+
+                <a href="{{ url_for('cottage_page', id=3) }}"> На воді </a>
+                <a href="{{ url_for('cottage_page', id=4) }}"> З лазнею </a>
+              </div>
+            </div>
+
+            <a href="{{ url_for('restaurant') }}" class="hed_text active">
+              Ресторан
+              <img
+                src="/static/images/Ресторан меню.png"
+                alt="Ресторан"
+                class="nav-photo"
+              />
+            </a>
+
+            <a href="{{ url_for('services') }}" class="hed_text">
+              Послуги
+              <img
+                src="/static/images/Послуги меню.png"
+                alt="Послуги"
+                class="nav-photo"
+              />
+            </a>
+
+            <a href="{{ url_for('about') }}" class="hed_text">
+              Про нас
+              <img
+                src="/static/images/Про нас меню.png"
+                alt="Про нас"
+                class="nav-photo"
+              />
+            </a>
+
+            <a href="{{ url_for('contacts') }}" class="hed_text">
+              Контакти
+              <img
+                src="/static/images/Контакти меню.png"
+                alt="Контакти"
+                class="nav-photo"
+              />
+            </a>
+
+            <a href="{{ url_for('home') }}#booking" class="hed_text">
+              Бронювання
+              <img
+                src="/static/images/Бронювання меню.png"
+                alt="Бронювання"
+                class="nav-photo"
+              />
+            </a>
+
+            <span class="hed_text phone-num">+380969909070</span>
+          </nav>
+        </header>
+      </div>
     </div>
 
-<script src="/static/js/script.js"></script>
-</body>
+    <h2>На даний момент інформація відсутня</h2>
+
+    <script src="/static/js/script.js"></script>
+  </body>
 </html>

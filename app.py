@@ -269,6 +269,8 @@ def cottage_page(id):
         LIMIT 1
     """, (id,))
     cottage = cursor.fetchone()
+    
+    print("COTTAGE:", cottage)
 
     # weekday price
     cursor.execute("""
@@ -362,6 +364,18 @@ def cottage_page(id):
 @app.route("/contacts")
 def contacts():
     return render_template("contacts.html")
+
+@app.route("/restaurant")
+def restaurant():
+    return render_template("restaurant.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/services")
+def services():
+    return render_template("services.html")
 
 if __name__ == "__main__":
     import os

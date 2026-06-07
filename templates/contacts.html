@@ -8,113 +8,110 @@
     <title>Услад контакти</title>
 </head>
 <body>
-        <div>
-            <header class="header">
-        <a href="/" class="logo"></a>
+       <header class="header">
+          <a href="/" class="logo"></a>
 
-        <div class="burger" id="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+          <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-        <nav class="hed_nav" id="nav-menu">
-          <div class="menu-top">
-            <a href="/" class="menu-logo"></a>
-            <div class="menu-close" id="menu-close">
-              <span></span>
-              <span></span>
+          <nav class="hed_nav" id="nav-menu">
+            <div class="menu-top">
+              <a href="/" class="menu-logo"></a>
+              <div class="menu-close" id="menu-close">
+                <span></span>
+                <span></span>
+              </div>
             </div>
-          </div>
-          <div class="menu-header">
-            <h3>Меню</h3>
-          </div>
-          <hr class="menu-line" />
+            <div class="menu-header">
+              <h3>Меню</h3>
+            </div>
+            <hr class="menu-line" />
 
-          <a href="{{ url_for('home') }}" class="hed_text">
-            Головна
-            <img
-              src="/static/images/Головна меню.png"
-              alt="Головна"
-              class="nav-photo"
-            />
-          </a>    
-          <div class="dropdown">
-            <a href="{{'cottage'}}" class="hed_text" id="apartments-link">
-              Котеджі
+            <a href="{{ url_for('home') }}" class="hed_text">
+              Головна
               <img
-                src="/static/images/Апартаменти меню.png"
-                alt="Апартаменти"
+                src="/static/images/Головна меню.png"
+                alt="Головна"
                 class="nav-photo"
               />
             </a>
-            <div class="dropdown-content">
-              <a href="{{ url_for('cottage_page', id=1) }}">
-      Стандарт
-    </a>
+            <div class="dropdown">
+              <a
+                href="{{ url_for('home') }}#cottages"
+                class="hed_text"
+                id="apartments-link"
+              >
+                Котеджі
+                <img
+                  src="/static/images/Апартаменти меню.png"
+                  alt="Апартаменти"
+                  class="nav-photo"
+                />
+              </a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('cottage_page', id=1) }}"> Стандарт </a>
 
-    <a href="{{ url_for('cottage_page', id=2) }}">
-      VIP
-    </a>
+                <a href="{{ url_for('cottage_page', id=2) }}"> VIP </a>
 
-    <a href="{{ url_for('cottage_page', id=3) }}">
-      На воді
-    </a>
-              <a href="{{ url_for('cottage_page', id=4) }}">
-      З лазнею
-    </a>
+                <a href="{{ url_for('cottage_page', id=3) }}"> На воді </a>
+                <a href="{{ url_for('cottage_page', id=4) }}"> З лазнею </a>
+              </div>
             </div>
-          </div> 
 
-          <a href="/templates/restaurant.html" class="hed_text">
-            Ресторан
-            <img
-              src="/static/images/Ресторан меню.png"
-              alt="Ресторан"
-              class="nav-photo"
-            />
-          </a>
+            <a href="{{ url_for('restaurant') }}" class="hed_text">
+              Ресторан
+              <img
+                src="/static/images/Ресторан меню.png"
+                alt="Ресторан"
+                class="nav-photo"
+              />
+            </a>
 
-          <a href="/templates/services.html" class="hed_text">
-            Послуги
-            <img
-              src="/static/images/Послуги меню.png"
-              alt="Послуги"
-              class="nav-photo"
-            />
-          </a>
+            <a href="{{ url_for('services') }}" class="hed_text">
+              Послуги
+              <img
+                src="/static/images/Послуги меню.png"
+                alt="Послуги"
+                class="nav-photo"
+              />
+            </a>
 
-          <a href="/templates/about.html" class="hed_text">
-            Про нас
-            <img
-              src="/static/images/Про нас меню.png"
-              alt="Про нас"
-              class="nav-photo"
-            />
-          </a>
+            <a href="{{ url_for('about') }}" class="hed_text">
+              Про нас
+              <img
+                src="/static/images/Про нас меню.png"
+                alt="Про нас"
+                class="nav-photo"
+              />
+            </a>
 
-          <a href="/templates/contacts.html" class="hed_text active">
-            Контакти
-            <img
-              src="/static/images/Контакти меню.png"
-              alt="Контакти"
-              class="nav-photo"
-            />
-          </a>
+            <a href="{{ url_for('contacts') }}" class="hed_text active">
+              Контакти
+              <img
+                src="/static/images/Контакти меню.png"
+                alt="Контакти"
+                class="nav-photo"
+              />
+            </a>
 
-          <a href="/#booking" class="hed_text">
-            Бронювання
-            <img
-              src="/static/images/Бронювання меню.png"
-              alt="Бронювання"
-              class="nav-photo"
-            />
-          </a>
+            <a href="{{ url_for('home') }}#booking" class="hed_text">
+              Бронювання
+              <img
+                src="/static/images/Бронювання меню.png"
+                alt="Бронювання"
+                class="nav-photo"
+              />
+            </a>
 
-          <span class="hed_text phone-num">+380969909070</span>
-        </nav>
-      </header>
-        </div>
+            <span class="hed_text phone-num">+380969909070</span>
+          </nav>
+        </header>
+      </div>
+    </div>
+
 
 <div class="map">
     <iframe

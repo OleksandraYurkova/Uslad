@@ -82,7 +82,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
             </div>
           </div> 
 
-          <a href="/templates/restaurant.html" class="hed_text">
+          <a href="{{ url_for('restaurant') }}" class="hed_text">
             Ресторан
             <img
               src="/static/images/Ресторан меню.png"
@@ -91,7 +91,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
             />
           </a>
 
-          <a href="/templates/services.html" class="hed_text">
+          <a href="/{{ url_for('services') }}" class="hed_text">
             Послуги
             <img
               src="/static/images/Послуги меню.png"
@@ -100,7 +100,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
             />
           </a>
 
-          <a href="/templates/about.html" class="hed_text">
+          <a href="{{ url_for('about') }}" class="hed_text">
             Про нас
             <img
               src="/static/images/Про нас меню.png"
@@ -118,7 +118,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   />
 </a>
 
-          <a href="/#booking" class="hed_text">
+          <a href="{{ url_for('home') }}#booking" class="hed_text">
             Бронювання
             <img
               src="/static/images/Бронювання меню.png"

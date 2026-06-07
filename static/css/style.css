@@ -1713,38 +1713,7 @@ video {
   }
 }
 
-@media (max-width: 600px) {
-  .rev_block {
-    padding: 40px 20px;
-  }
 
-  .authorName {
-    font-size: 28px;
-  }
-
-  .review-stars {
-    font-size: 28px;
-  }
-
-  .review-comment {
-    font-size: 18px;
-    line-height: 1.5;
-  }
-
-  .review-date {
-    font-size: 15px;
-  }
-
-  .review-arrow img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .review-btn {
-    padding: 12px 38px;
-    font-size: 14px;
-  }
-}
 
 /* VIII BLOCK Footer (FINAL) */
 .footer {
