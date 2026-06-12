@@ -23,12 +23,12 @@
 
   /* Текст */
   .title {
-    font-size: 50px;
+    font-size: 42px;
     margin-bottom: -15px;
   }
 
   .title2 {
-    font-size: 22px;
+    font-size: 18px;
     margin-bottom: 30px;
   }
 
@@ -74,11 +74,16 @@
   .burger {
     display: flex;
   }
+ html,
+  body{
+    overflow-x:hidden;
+  }
 
   .hed_nav {
     position: fixed;
     top: 0;
-    left: 0;
+   right: -100%;
+    left: auto;
     width: 100%;
     height: 100dvh;
 
@@ -89,16 +94,18 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 80px 20px 40px; /* відступ тільки під хедер */
+    padding: 80px 20px 40px; 
 
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
+    transform: none;
+    transition: right .4s ease;
 
     z-index: 1000;
     overflow-y: auto;
   }
   .hed_nav.active {
     transform: translateX(0);
+    right: 0;
+
   }
 
   .hed_nav span {
@@ -616,66 +623,69 @@
 
 
 /* MOBILE FOOTER */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 0 40px;
+  }
 
-.footer {
-  padding: 30px 20px;
-}
+  .footer__line {
+    margin-bottom: 35px;
+  }
 
-.footer__inner {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 25px;
-  padding: 0;
-}
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    text-align: center;
+  }
 
-/* логотип */
-.footer__logo {
-  margin-top: 0;
-}
+  .footer__column {
+    width: 100%;
+    max-width: 320px;
+    align-items: center;
+  }
 
-/* центральний текст */
-.footer__title {
-  font-size: 20px;
-  max-width: 320px;
-}
+  .footer__column::before,
+  .footer__divider::after {
+    display: none;
+  }
 
-/* контакти */
-.footer__right {
-  flex: none;
-  width: 100%;
-  align-items: center;
-  gap: 12px;
-}
+  .footer__column:not(:first-child) {
+    padding-left: 0;
+  }
 
-.contact {
-  align-items: center;
-}
+  .footer__title {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height:1.4;
+      margin-top:10px;
+  }
 
-/* адреса трохи нижче */
-.footer__addrTitle {
-  margin-top: 12px;
-}
+  .cont-text {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
 
-/* соцмережі */
-.footer-social {
-  justify-content: center;
-  gap: 18px;
-  margin-top: 8px;
-}
+  .contact_text{
+      font-size:14px;
+      line-height:1.5;
+  }
 
-.footer-social img {
-  width: 28px;
-  height: 28px;
-}
+  .footer-social {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .footer-social img{
+      width:30px;
+      height:30px;
+  }
+} 
 
 /*--------------------------------
 COTTAGE.HTML 
 ---------------------------------*/
-
-/* =========================
-   COTTAGE PAGE - MOBILE
-========================= */
 
 @media (max-width: 768px) {
 
@@ -824,5 +834,55 @@ COTTAGE.HTML
 
   .photo-set .book-btn {
     width: 100%;
+  }
+}
+/* CONTACTS.HTML */
+@media (max-width: 768px) {
+ .contacts-section{
+      flex-direction:column;
+      gap:30px;
+      margin:60px auto;
+      padding:0 20px;
+  }
+
+  .contacts-info{
+      width:100%;
+  }
+
+  .contacts-title{
+      font-size:28px;
+      margin-bottom:20px;
+  }
+
+  .contacts-title::before{
+      height:60px;
+  }
+
+  .contact-item{
+      gap:12px;
+      padding:12px 0;
+  }
+
+  .contact-item h3{
+      font-size:17px;
+  }
+
+  .contact-item p{
+      font-size:14px;
+      line-height:1.45;
+  }
+
+  .icon-circle{
+      width:38px;
+      height:38px;
+  }
+
+  .icon-circle svg{
+      width:18px;
+      height:18px;
+  }
+
+  .map iframe{
+      height:280px;
   }
 }
